@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MAIN-PAGE - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav>
+        <h2><a href="index.html">Home</a></h2>
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul></li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul></li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+
+    <div id="main">
+        <h1 class="page-title">MAIN-PAGE</h1>
+        <section>
+            <header>
+                In this section we will see the different options available on the main page of the oscilloscope.                
+            </header>
+
+            <article>
+                <h4 class="name" id=".Channel-buttons">Channel-buttons</h4>
+                <dl class="details">
+                    <p>Each channel displayed on screen has a button assigned to allow the user to mask and/or focus each signal.</p>
+                    
+                    <div class="image-container mt-1">
+                        <figure class="mw-40">
+                            <img src="./images/main-page/channel-buttons-highlight.png" alt="Position of the channel buttons on the oscilloscope's main screen.">
+                            <figcaption class="text-center">Position of the channel buttons on the oscilloscope's main screen.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Clicking on a channel button will focus this channel, this means we can then change its vertical scale, measure its tension using cursors, etc.</p>
+                    <p>If the user clicks on a button that is already focused, it will hide the signal and the button will turn gray.</p>
+                    <p>If a channel is not displayed but available and the user clicks on its button, the channel will now be displayed.</p>
+
+                    <figure class="mw-40">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/main-page/channel-button-interaction.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Channel button interaction</figcaption>
+                    </figure>
+
+                    <p class="info">As you can see in the video above, clicking on a channel already displayed will focus it.<br>The focused channel has a thick white border to keep track of it.</p>
+                </dl>
+
+                <h4 class="name" id=".Horizontal-offset">Horizontal-offset</h4>
+                <dl class="details">
+                    <p>You can move the signals horizontally at any moment by using the horizontal-offset cursor.</p>
+                    <p>Simply click and drag the cursor to the left or right to move the signals.</p>
+
+                    <figure class="mw-40">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/main-page/horizontal-offset-demo.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Offsetting the signals horizontally using the cursor.</figcaption>
+                    </figure>
+                </dl>
+
+                <h4 class="name" id=".Knobs">Knobs</h4>
+                <dl class="details">
+                    <p>Now let's see how to use the two knobs present at the bottom right of the page.</p>
+                    <p>The left knob is used to change the vertical scale of a specific channel and the right knob is used to change the horizontal scale of all channels.</p>
+                
+                    <div class="image-container mt-1">
+                        <figure class="mw-40">
+                            <img src="./images/main-page/knobs-position.png" alt="Position of the knobs on the oscilloscope's main screen.">
+                            <figcaption class="text-center">Position of the knobs on the oscilloscope's main screen.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>To change the horizontal scale of the signals, simply turn the right knob left or right and you will see the signals on the screen expand or shrink.</p>
+                    <p class="info">The procedure requires an extra-step for the vertical-offset, since this is specific to a single channel, you first need to focus a channel (Using the channel buttons) and then change its scale using the left knob.</p>
+                
+                    <figure class="mw-40">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/main-page/vertical-scaling-example.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Using the vertical-scaling knob.</figcaption>
+                    </figure>
+                </dl>
+
+                <h4 class="name" id=".Readings">Readings</h4>
+                <dl class="details">
+                    <div class="image-container mt-1">
+                        <figure class="mw-40">
+                            <img src="./images/main-page/bottom-screen-readings.png" alt="Readings shown at the bottom of the screen.">
+                            <figcaption class="text-center">Readings shown at the bottom of the screen.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>At the bottom of the screen are readings.</p>
+                    <p>By default, there are only two types of readings, the V/div of each channel and the global S/div.</p>
+                    <p>These readings are updated in real-time as you change the scales of the signals.</p>
+                </dl>
+
+                <h4 class="name" id=".Start-Stop">Start-Stop</h4>
+                <dl class="details">
+                    <p>
+                        To start the oscilloscope up, simply click on the 'RUN' button.<br>
+                        To stop it, click that same button which should now say 'STOP'.
+                    </p>
+                    <div class="image-container mt-1">
+                        <figure class="mw-40">
+                            <img src="./images/main-page/run-stop-button-highlighted.png" alt="RUN/STOP Button of the oscilloscope">
+                            <figcaption class="text-center">RUN/STOP Button of the oscilloscope</figcaption>
+                        </figure>
+                    </div>
+                </dl>
+
+                <h4 class="name" id=".Vertical-offset">Vertical-offset</h4>
+                <dl class="details">
+                    <p>The vertical offset is specific to each channel. It allows the user to move a signal up or down.</p>
+                    <p>To do so, simply use the cursor on the left of the screen associated with the signal you want to move (it should be the same color).</p>
+                    <p class="info">A hidden signal will not have a cursor available, you need to display the signal first.</p>
+
+                    <figure class="mw-40">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/main-page/vertical-offset-demo.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Offseting signals vertically</figcaption>
+                    </figure>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

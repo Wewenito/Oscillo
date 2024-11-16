@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TRIGGER - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav >
+        <h2><a href="index.html">Home</a></h2>
+        <h3>Modules</h3>
+        
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul></li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul></li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+    <div id="main">
+        <h1 class="page-title">TRIGGER</h1>
+        <section>
+            <header>
+                <p>In this section, we'll see everything about the trigger system of the oscilloscope app.</p>
+                
+                <div class="image-container mt-1">
+                    <figure class="mw-40">
+                        <img src="./images/trigger/trigger-position.png" alt="Position of the Trigger button on the oscilloscope's main screen.">
+                        <figcaption class="text-center">Position of the 'Trigger' button on the oscilloscope's main screen.</figcaption>
+                    </figure>
+                </div>
+            </header>
+
+            <article>
+                <h4 class="name" id=".trigger-sub-menu">Sub-menu overview</h4>
+                <dl class="details">
+                    <p>The trigger sub-menu has quite a lot of different parameters, we'll see the purpose for each of them here below.</p>
+                    <div class="image-container">
+                        <figure class="fc">
+                            <img src="./images/trigger/trigger-sub-menu.png" alt="Trigger sub-menu">
+                            <figcaption class="text-center">Trigger sub-menu.</figcaption>
+                        </figure>
+                    </div>
+                    <p>Trigger parameters : </p>
+                    <ul class="classic-list">
+                        <li><strong>Trigger on/off</strong> : Should the trigger be active or not.</li>
+                        <li><strong>Trigger mode</strong> : 
+                            <ul class="classic-list">
+                                <li>Edge-Trigger : A single treshold to check if a signal is crossing it.</li>
+                                <li>Window-Trigger : A range of voltage to check if a signal is crossing either one.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Trigger Channel</strong> : Which channel will the trigger be watching.</li>
+                        <li><strong>Trigger Slope</strong> : Slope type of the signal.
+                            <ul class="classic-list">
+                                <li>Both</li>
+                                <li>Rising : Signal must go from low to high</li>
+                                <li>Falling : Signal must go from high to low.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Trigger level</strong> : At what treshold should the trigger activate (mV).</li>
+                        <li><strong>Window Level min</strong> (If the 'Trigger mode' = 'Window-Trigger') : Treshold A for the trigger to activate (mV).</li>
+                        <li><strong>Window Level max</strong> (If the 'Trigger mode' = 'Window-Trigger') : Treshold B for the trigger to activate (mV).</li>
+                        <li><strong>Hold off</strong> : How many seconds will the screen be freezed once a trigger has been activated.</li>
+                    </ul>
+                    <br>
+                    <p class="info">Once all of the trigger parameters are set, just press the blue 'Apply Trigger Settings' button.</p>
+                </dl>
+
+                <h4 class="name" id=".trigger-ui">Trigger UI</h4>
+                <dl class="details">
+                    <p>When the trigger is active, a few UI elements will change and/or be created to allow the user to quickly interact with the trigger without having to constantly use the sub-menu.</p>
+                    
+                    <h5 style="text-decoration: underline;">Trigger Button :</h5>
+                    <p>When the trigger is set to 'on', the trigger button serves a new purpose to inform the user of the current state of the trigger.</p>
+                    
+                    <div class="trig-buttons-container">
+                        <figure class="trig-buttons-figures">
+                            <img src="./images/trigger/trigger-button-neutral.png" alt="Neutral trigger button.">
+                            <figcaption class="trig-buttons-figcaptions">Neutral trigger button.</figcaption>
+                        </figure>
+
+                        <figure class="trig-buttons-figures">
+                            <img src="./images/trigger/trigger-button-listening.png" alt="Trigger button with trigger 'on'">
+                            <figcaption class="trig-buttons-figcaptions">Trigger button with trigger 'on'.</figcaption>
+                        </figure>
+
+                        <figure class="trig-buttons-figures">
+                            <img src="./images/trigger/trigger-button-triggered.png" alt="Trigger button with trigger activated.">
+                            <figcaption class="trig-buttons-figcaptions">Trigger button with trigger activated.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>What do these different colors mean ?</p>
+                    <ul>
+                        <li>Default, white button : The trigger is not on.</li>
+                        <li>Orange trigger button : The trigger is on but not actually triggered.</li>
+                        <li>Green trigger button : A signal has triggered the trigger mechanism and the image is frozen.</li>
+                    </ul>
+
+                    <figure class="mw-50">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/trigger/trigger-button-interaction.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Interactions with the trigger button.</figcaption>
+                    </figure>
+
+                    <p class="info">As you can see in the video here above, clicking on the trigger button while it's green will skip the current freeze.<br>
+                    The button is orange otherwise because the trigger is on.</p>
+
+                    <h5 style="text-decoration: underline;">Trigger Cursor :</h5>
+
+                    <p>When the trigger is on, a new cursor will appear in the right scrollbar of the screen.</p>
+                    <p>This cursor shows the current treshold set for the trigger, if the user moves it, the treshold value for the trigger will be updated in real time.</p>
+
+                    <figure class="mw-50">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/trigger/trigger-cursor-set.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Interaction with the trigger cursor.</figcaption>
+                    </figure>
+                    <p class="info">The video above shows how you can move the trigger cursor in order to detect when a signal crosses a certain treshold.</p>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SAVE - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav >
+        <h2><a href="index.html">Home</a></h2>
+        <h3>Modules</h3>
+        
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul></li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul></li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+
+    <div id="main">
+        <h1 class="page-title">SAVE</h1>
+        <section>
+            <header>
+                In this section, we'll see every export option for the data currently displayed on screen.
+
+                <div class="image-container mt-1">
+                    <figure class="mw-40">
+                        <img src="./images/save/save-position.png" alt="Position of the save button on the oscilloscope's main screen.">
+                        <figcaption class="text-center">Position of the 'Save' button on the oscilloscope's main screen.</figcaption>
+                    </figure>
+                </div>
+            </header>
+
+            <article>
+                <h4 class="name" id=".exports">Exports</h4>
+                <dl class="details">
+                    
+                    <div class="image-container">
+                        <figure class="fc">
+                            <img src="./images/save/save-sub-menu.png" alt="Save sub-menu">
+                            <figcaption class="text-center">Save sub-menu.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>As you can see here above, the save menu is pretty straightforward.</p>
+                    <p>You have four buttons, each used to download the current data in a specific format : </p>
+                    <ul>
+                        <li>CSV : Saves the data as a csv file with each column representing a channel and each row representing a sample point.</li>
+                        <li>PNG : Saves the data as .png picture.</li>
+                        <li>JPEG : Saves the data as .jpeg picture.</li>
+                        <li>CLIPBOARD : Saves a .png picture of the screen directly to the user's clipboard.</li>
+                    </ul>
+                    <p class="alert">The copy to clipboard option will not work for safari & firefox users.<br>Any other export will work fine.</p>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

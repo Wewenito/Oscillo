@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Password</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href={% static "IMAGES/oscillo-icon.png" %}>
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- THANKS TO THEM -->
+</head>
+<body class="bg-light bg-gradient" style="min-height: 100vh;">
+    <form method="post" class="w-50" style="margin: auto; display: flex; flex-direction: column; flex-wrap: nowrap;" id="PasswordUpdateForm">
+        {% csrf_token %}
+        <h2 class="mt-4 text-center">Change Your Password</h2>
+        <div class="mt-5 w-50 mx-auto">
+            <label class="form-label">{{ form.currentPassword.label }} : </label>
+            {{ form.currentPassword }}
+        </div>
+
+        <div class="w-50 mx-auto mt-2">
+            <label class="form-label">{{ form.newPassword1.label }} : </label>
+            {{ form.newPassword1 }}
+        </div>
+
+        <div class="w-50 mx-auto mt-2">
+            <label class="form-label">{{ form.newPassword2.label }} : </label>
+            {{ form.newPassword2 }}
+        </div>
+
+        <button class="btn btn-info mt-4 mx-auto px-5" id="submitButton">Modify</button>
+        <a class="text-center mt-2" href="/oscillo/">Back to settings</a>
+    </form>
+
+    {% if errors %}
+        <ul class="alert alert-danger w-50 mx-auto mt-5">
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById("id_currentPassword").type = "password";
+            document.getElementById("id_newPassword1").type = "password";
+            document.getElementById("id_newPassword2").type = "password";
+        });
+    </script>
+</body>
+</html>

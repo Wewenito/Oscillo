@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="utf-8">
+    <title>CURSORS - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav>
+        <h2><a href="index.html">Home</a></h2>
+        
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul></li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul></li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+    <div id="main">
+        <h1 class="page-title">CURSORS</h1>
+        
+        <section>
+            <header>
+                In this section we'll see how to deploy and use measurement cursors.
+                <br>
+                <br>
+                There are two main types of cursors : 
+                <ul>
+                    <li><strong>Vertical cursors</strong> - To measure the time contained between the two cursors </li>
+                    <li><strong>Horizontal cursors</strong> - To measure the voltage between the two cursors specific to a certain channel.</li>
+                </ul>
+                Everything regarding the cursors can be controlled via the 'CURSORS' sub-menu available by clicking the button here below.
+
+                <div class="image-container mt-1">
+                    <figure class="mw-40">
+                        <img src="./images/cursors/cursors-button.png" alt="Position of the cursors button on the oscilloscope's main screen.">
+                        <figcaption class="text-center">Position of the 'cursors' button on the oscilloscope's main screen.</figcaption>
+                    </figure>
+                </div>
+            </header>
+
+            <article>
+                <h4 class="name" id=".cursors-doc-vertical">Sub-menu overview</h4>
+                <dl class="details">
+                    <div class="image-container">
+                        <figure class="fc">
+                            <img src="./images/cursors/cursors-sub-menu.png" alt="Cursors sub-menu">
+                            <figcaption class="text-center">Cursors sub-menu.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>This menu is pretty straigthforward, we only have a few options : </p>
+                    <ul>
+                        <li><strong>Horizontal</strong> - Choose wether you want the horizontal cursors or not.</li>
+                        <li><strong>Vertical</strong> - Choose wether you want the vertical cursors or not.</li>
+                        <li><strong>Value</strong> - Choose the information display type (near each cursor or displayed at the top right of the screen). See "Information display style" here below.</li>
+                    </ul>
+                    <p>Hitting the reset button will remove all cursors currently displayed and set the display type back to 'On cursor'</p>
+                </dl>
+
+                <h4 class="name" id=".cursors-doc-horizontal">Interactions with the cursors</h4>
+                <dl class="details">
+                    <div class="double-video-container">
+                        <figure class="double-video-figure">
+                            <video autoplay muted loop class="double-video">
+                                <source src="./images/cursors/vertical-cursor-interaction.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="text-center">Scrolling the vertical cursors.</figcaption>
+                        </figure>
+    
+                        <figure class="double-video-figure">
+                            <video autoplay muted loop class="double-video">
+                                <source src="./images/cursors/horizontal-cursor-interaction.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="text-center">Scrolling the horizontal cursors.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>As you can see in the video above, both horizontal and vertical cursors can be moved using the scrollers above and on the right of the screen.</p>
+                    <p>The values near each cursor are : </p>
+                    <ul>
+                        <li> - For the vertical cursors, the time equivalent of the position of the cursor from the left of the screen.</li>
+                        <li> - For the horizontal cursors, the voltage equivalent of the position of the cursor relative to the middle of the screen.</li>
+                        <li> - Both horizontal & vertical cursors will also display between them the delta of their values.</li>
+                    </ul>
+                </dl>
+
+                <h4 class="name" id=".cursors-display-style">Information display style</h4>
+                <dl class="details">
+                    <p>The information display style can be set so that every information normally near each cursor will be within a rectangle on the top right of the screen.</p>
+                    <p>You can see the result in the picture below.</p>
+
+                    <div class="image-container">
+                        <figure class="mw-40">
+                            <img src="./images/cursors/in-display-cursors.png" alt="Cursors sub-menu">
+                            <figcaption class="text-center">Both horizontal & vertical cursors displayed with 'in-display' option set.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Note: You can use both horizontal & vertical cursors at the same time.</p>
+
+                    <p class="important">For the horizontal cursors to display numbers, you need to have a channel focused.<br>
+                    Without this, only the mention 'no channel selected' will appear.
+                    This is because the voltage measures require to know the current vertical scale of a channel in order to be accurate.
+                    All channels can have a different mv/div value so it is not possible to get a 'global' value to display.</p>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

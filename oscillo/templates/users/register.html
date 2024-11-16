@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" type="image/png" href={% static "IMAGES/oscillo-icon.png" %}>
+    <title>Register</title>
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- THANKS TO THEM -->
+</head>
+<body class="bg-light bg-gradient" style="min-height: 100vh;">
+    <form method="post" class="w-50" style="margin: auto; display: flex; flex-direction: column; flex-wrap: nowrap;">
+        {% csrf_token %}
+        <h2 class="mt-4 text-center">Register an account</h2>
+        <div class="mt-5 w-50 mx-auto">
+            <label class="form-label">{{ form.username.label }} : </label>
+            {{ form.username }}
+        </div>
+
+        <div class="w-50 mx-auto mt-2">
+            <label class="form-label">{{ form.first_name.label }} : </label>
+            {{ form.first_name }}
+        </div>
+
+        <div class="w-50 mx-auto mt-2">
+            <label class="form-label">{{ form.last_name.label }} : </label>
+            {{ form.last_name }}
+        </div>
+
+        <div class="w-50 mx-auto mt-2">
+            <label class="form-label">{{ form.email.label }} : </label>
+            {{ form.email }}
+        </div>
+
+        <div class="w-50 mx-auto mt-2">
+            <label class="form-label">{{ form.password1.label }} : </label>
+            {{ form.password1 }}
+        </div>
+
+        <div class="w-50 mx-auto mt-2">
+            <label class="form-label">{{ form.password2.label }} : </label>
+            {{ form.password2 }}
+        </div>
+
+        <button type="submit" class="btn btn-info mt-4 mx-auto px-5">Register</button>
+        <p class="text-center mt-2">Already have an account ? <a href={% url "oscillo:login" %}>Log in</a></p>
+        <a class="text-center mt-1" href="/oscillo/">Back to settings</a>
+    </form>
+
+    {% if messages %}<!--In case the login failed-->
+    <ul class="alert alert-danger w-50 mx-auto mt-5">
+        {% for field, error in form.errors.items %}
+            {{ error }}
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <footer class="text-center" style="position: fixed; bottom: 0; width: 100%;">
+        <p>&copy; 2024 CNRS-IPHC. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function setBootstrapStyles(){
+            document.getElementById("id_username").classList.add("form-control");
+            document.getElementById("id_first_name").classList.add("form-control");
+            document.getElementById("id_last_name").classList.add("form-control");
+            document.getElementById("id_email").classList.add("form-control");
+            document.getElementById("id_password1").classList.add("form-control");
+            document.getElementById("id_password2").classList.add("form-control");
+        };
+
+        setBootstrapStyles();
+    </script>
+</body>
+</html>
+

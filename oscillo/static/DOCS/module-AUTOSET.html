@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AUTOSET - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav >
+        <h2><a href="index.html">Home</a></h2>
+        <h3>Modules</h3>
+        
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul></li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul></li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+    <div id="main">
+        <h1 class="page-title">AUTOSET</h1>
+        <section>
+            <header>
+                The autoset function is here to make sure all signals are within bounds of the oscilloscope's screen.
+                <br>
+                <br>
+                We'll see in this section how to enable/activate the autoset function, followed by a few examples.
+            </header>
+            <article>
+                <h4 class="name" id=".activate-autoset">Activate the autoset function</h4>
+                <dl class="details">
+                    <p>To activate the autoset, simply click on the 'AUTOSET' button at any time (cf image below).</p>
+                    <p>All signals displayed outside of the screen's bounds or clipped out of the screen will be brought back within the screen.</p>
+                    <p>N.B: The autoset will change the offset and scaling of the clipped signals in order to bring them back into the screen.</p>
+                    <div class="image-container">
+                        <figure class="mw-40">
+                            <img src="./images/autoset/autoset-button-position.png" alt="Position of the autoset button on the oscilloscope's main screen.">
+                            <figcaption class="text-center">Position of the autoset button on the oscilloscope's main screen.</figcaption>
+                        </figure>
+                    </div>
+                </dl>
+
+                <h4 class="name" id=".autoset-examples">Autoset usage example</h4>
+                <dl class="details">
+                    <p>In this example you can see the effect of the autoset on the signals displayed on screen between the first and second image.</p>
+                    <div class="double-image">
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/autoset/pre-autoset.png" alt="Position of the autoset button on the oscilloscope's main screen.">
+                                <figcaption class="text-center">Oscilloscope screen with clipped signals.</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/autoset/post-autoset.png" alt="Position of the autoset button on the oscilloscope's main screen.">
+                                <figcaption class="text-center">Oscilloscope screen after the autoset use.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <br class="clear">
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

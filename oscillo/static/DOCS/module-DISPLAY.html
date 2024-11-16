@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DISPLAY - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav>
+        <h2><a href="index.html">Home</a></h2>
+        
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul></li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul></li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+    <div id="main">
+        <h1 class="page-title">DISPLAY</h1>
+        <section>
+            <header>
+                In this section we'll see in details the differents options within the 'Display' sub-menu.
+                <br>
+                <br>
+                Note: The display menu allows the user to change some visual aspects of the app, these changes will be permanent only if the user is registered.
+                <div class="image-container mt-1">
+                    <figure class="mw-40">
+                        <img src="./images/display/display-position.png" alt="Position of the display button on the oscilloscope's main screen.">
+                        <figcaption class="text-center">Position of the 'Display' button on the oscilloscope's main screen.</figcaption>
+                    </figure>
+                </div>
+            </header>
+
+            <article>
+                <h4 class="name" id=".zoom-doc">Zooming</h4>
+                <dl class="details">
+                    <p>It is possible at any moment while the oscilloscope is running to zoom on part of the screen.</p>
+                    <p>To do so, simply click and drag your mouse on the area of the screen you want to zoom on (See figure below).</p>
+
+                    <figure class="mw-40">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/display/mouse-zoom.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Zooming on part of the screen.</figcaption>
+                    </figure>
+                </dl>
+
+                <h4 class="name" id=".unzoom-doc">Unzoom</h4>
+                <dl class="details">
+                    <p>There are two ways to unzoom the screen : </p>
+                    <ul>
+                        <li><strong>- Via the sub-menu display, click on the 'Unzoom' button.</strong></li>
+                        <li><strong>- Press "Shift + X" to cancel the zoom.</strong></li>
+                    </ul>
+
+                    <p class="alert">If, for whatever reason, the "Shift+X" shortcut does not work, the unzoon button should be able to resolve the problem.</p>
+                </dl>
+
+                <h4 class="name" id=".grid-display-doc">Grid display</h4>
+                <dl class="details">
+                    <p>This option will allow you to choose wether or not to display the background grid of the screen.</p>
+                    <p>Note: This preference will not be persistent for all sessions.</p>
+
+                    <div class="double-image">
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/display/screen-without-grid.png" alt="Oscilloscope screen without any grid.">
+                                <figcaption class="text-center">Oscilloscope screen without any grid.</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/display/screen-with-grid.png" alt="Default oscilloscope screen with grid.">
+                                <figcaption class="text-center">Default oscilloscope screen with grid.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <p>Keep in mind that if you download the current screen as an image using the SAVE or PRINT options, the grid will not be there if it has been hidden by the user.</p>
+                    <p>What you see on screen is what will be downloaded.</p>
+                </dl>
+
+                <h4 class="name" id=".theme-doc">Theme</h4>
+                <dl class="details">
+                    <p>The 'theme' option allows the user to choose between the light mode and the dark mode.</p>
+                    <p>This preference will be saved for all sessions if the user changing the parameter is currently logged-in.</p>
+
+                    <div class="double-image">
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/display/light-mode-screen.png" alt="Oscilloscope screen in light mode">
+                                <figcaption class="text-center">Oscilloscope screen in light mode.</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/display/dark-mode-screen.png" alt="Oscilloscope screen in dark mode.">
+                                <figcaption class="text-center">Oscilloscope screen in dark mode.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <p>Changing the theme of the oscilloscope will also change the color of each channel.</p>
+                    <p>Since we need high-contrast against the background to see the signals, the colorsets for the light & dark mode are not the same.</p>
+                    <p>It is however possible for the user to select what color is associated with each channel for both light & dark mode using the SETUP menu.</p>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

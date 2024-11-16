@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MEASURE - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav >
+        <h2><a href="index.html">Home</a></h2>
+        <h3>Modules</h3>
+        
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul></li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul></li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+
+    <div id="main">
+        <h1 class="page-title">MEASURE</h1>
+        <section>
+            <header>
+                We'll see in this section the different options available to the user within the 'MEASURE' sub-menu.
+                <br>
+                <div class="image-container mt-1">
+                    <figure class="mw-40">
+                        <img src="./images/measure/measure-position.png" alt="Position of the measure button on the oscilloscope's main screen.">
+                        <figcaption class="text-center">Position of the 'Measure' button on the oscilloscope's main screen.</figcaption>
+                    </figure>
+                </div>
+                <p>The 'Measure' menu is a bit different from the other ones because it is divided in 2 parts : </p>
+                <ul>
+                    <li>Math functions, these can generate new signals from pre-existing ones.</li>
+                    <li>Auto measures, these are used to display 'quick-read' informations at the bottom of the screen such as vpp, min value, max value, etc.</li>
+                </ul>
+            </header>
+
+            <article>
+                <h4 class="name" id=".sub-menu-overview">Sub-menus overview</h4>
+                <dl class="details">
+                    <div class="double-small-image">
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/measure/math-functions-submenu.png" alt="Math functions sub-menu">
+                                <figcaption class="text-center">Math functions sub-menu.</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-container">
+                            <figure class="figure-double">
+                                <img src="./images/measure/auto-measures-submenu.png" alt="Auto-measures sub-menu">
+                                <figcaption class="text-center">Auto-measures sub-menu</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <p class="alert">You can switch between one of these two sections using the blue button at the bottom of the sub-menu.</p>
+                </dl>
+
+                <h4 class="name" id=".math-functions">Math functions</h4>
+                <dl class="details">
+                    <p>The math-functions sub-menu will allow you to generate signals from pre-existing ones.</p>
+                    <p>Here is the description of each input within this sub-menu and what they'll do : </p>
+                    <ul class="classic-list">
+                        <li>Channel slot : Which unoccupied channel slot should the new signal use ?</li>
+                        <li>Channel : What channel are we using as a base for the operation ?</li>
+                        <li>Operation : What type of operation are we using on the signal ?</li>
+                        <li>Channel 2 (If operation selected needs two operands) : What is the 2nd base channel ?</li>
+                    </ul>
+
+                    <p>There are a total of 8 operation types, some of them require a second base channel to create the new signal :</p>
+                    <ul class="classic-list">
+                        <li>Addition (Needs a 2nd signal)</li>
+                        <li>Substraction (Needs a 2nd signal)</li>
+                        <li>Multiplication (Needs a 2nd signal)</li>
+                        <li>Division (Needs a 2nd signal)</li>
+                        <li>Squared</li>
+                        <li>Derivative</li>
+                        <li>Integral</li>
+                        <li>Fast Fourrier Transform</li>
+                    </ul>
+
+                    <p>Once you've selected the parameters, simply hit 'SAVE' to generate the new signal as you specified.</p>
+                    
+                    <div class="double-video-container-ds">
+                        <figure class="mw-30">
+                            <video autoplay muted loop class="double-video">
+                                <source src="./images/measure/generating-signal-menu.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="text-center">Creating a new signal using the 'math functions' sub-menu.</figcaption>
+                        </figure>
+    
+                        <figure class="double-video-figure" style="height: fit-content;">
+                            <video autoplay muted loop class="double-video">
+                                <source src="./images/measure/generating-signal-result.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption class="text-center">Newly created signal.</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>As you can see in the figure above on the left, once a signal is created, it will be displayed within this sub-menu with an icon to delete it if needed.</p>
+                    <p class="alert" style="font-size: 1.1em; font-weight: bold; color: whitesmoke;">In the example above, since we've specified CH6 as slot for the newly generated signal, this spot will no longer be available to generate new signals on.<br>
+                    It is however possible to use the CH6 signal as a base to generate another one since it will be now considered the same as any other base signal.
+                    </p>
+                </dl>
+
+                <h4 class="name" id=".auto-measures">Auto-measures</h4>
+                <dl class="details">
+                    <p>The auto-measures sub-menu will allow a user to select from a multitude of values which ones to display below the oscilloscope's screen.</p>
+                    <p>The sub-menu for auto-measures works like so :</p>
+                    <ul class="classic-list">
+                        <li>Channel : On top of the menu is where you select what channel these measurements should be based on.</li>
+                        <li>Below this are each auto-measurements available, simply click on one and the corresponding measure will now be displayed below the screen.<br>
+                        To get rid of a set measurement, simply click on it again (gray options aren't displayed and green ones are).</li>
+                        <li>The reset button will remove all auto-measures.</li>
+                    </ul>
+
+                    <p class="info">The measurements appearing below the screen will be the color of the selected channel in the auto-measures sub-menu.</p>
+
+                    <figure class="mw-60">
+                        <video autoplay muted loop style="max-width: 100%;">
+                            <source src="./images/measure/auto-measures-test.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-center">Setting a few auto-measures for the channel 3.</figcaption>
+                    </figure>
+                </dl>
+            </article>
+        </section>
+    </div>
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/linenumber.js"></script>
+</body>
+</html>

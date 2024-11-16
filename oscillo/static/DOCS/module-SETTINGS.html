@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SETTINGS - Documentation</title>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav>
+        <h2>
+            <a href="index.html">Home</a>
+        </h2>
+        <h3>Modules</h3>
+        <ul>
+            <li><a href="module-AUTOSET.html">AUTOSET</a></li>
+            <li><a href="module-CURSORS.html">CURSORS</a></li>
+            <li><a href="module-DISPLAY.html">DISPLAY</a></li>
+            <li><a href="module-MAIN-PAGE.html">MAIN-PAGE</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Channel-buttons">Channel-buttons</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Horizontal-offset">Horizontal-offset</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Knobs">Knobs</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Readings">Readings</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Start-Stop">Start-Stop</a></li>
+                    <li data-type='method'><a href="module-MAIN-PAGE.html#.Vertical-offset">Vertical-offset</a></li>
+                </ul>
+            </li>
+            <li><a href="module-MEASURE.html">MEASURE</a></li>
+            <li><a href="module-PRINT.html">PRINT</a></li>
+            <li><a href="module-SAVE.html">SAVE</a></li>
+            <li><a href="module-SETTINGS.html">SETTINGS</a>
+                <ul class='methods'>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Files">Files</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Real-Time">Real-Time</a></li>
+                    <li data-type='method'><a href="module-SETTINGS.html#.Simulated-Real-Time">Simulated-Real-Time</a></li>
+                </ul>
+            </li>
+            <li><a href="module-SETUP.html">SETUP</a></li>
+            <li><a href="module-SIZE.html">SIZE</a></li>
+            <li><a href="module-TRIGGER.html">TRIGGER</a></li>
+        </ul>
+    </nav>
+    <div id="main">
+        <h1 class="page-title">SETTINGS</h1>
+        <section>
+            <header>
+                The settings page is the first step to use the oscilloscope app.
+                <br>
+                <br>
+                There are two main modes available for this app, the <strong>Real-Time</strong> mode and the <strong>File</strong> mode : 
+                <ul>
+                    <li><strong>Real-Time</strong> - Read data either sent live from STARE cards or simulate it using a local server (FakestareData.py).</li>
+                    <li><strong>File</strong> - Read data from .osc files.</li>
+                </ul>
+                You will find in each section below a detailed explanation on how to setup the oscilloscope depending on the mode you chose.
+            </header>
+            <article>
+                <h3 class="subsection-title">Modes detailed</h3>
+
+                <h4 class="name" id=".Real-Time">Real-Time</h4>
+                <dl class="details">
+                    <div class="image-container">
+                        <figure class="mw-40">
+                            <img src="./images/settings/real-time-page.png" alt="Settings page with 'real-time' as the selected mode.">
+                            <figcaption class="text-center">Default settings page for Real-time gathering.</figcaption>
+                        </figure> 
+                    </div>
+                    <p>When you are in front of this screen, the procedure is quite simple.</p>
+                    <p>Simply fill out every input depending on what the cards will be sending you. You need to be careful as to what you enter because while some values won't
+                        stop the application from working (voltage, frequency), others will render an end result not at all representative of what the cards are actually sending 
+                        (Channel, samples per frame, bit depth).
+                        It is important however to note that if the voltage or frequency specified are not right then all calculations displayed on screen will not be accurate !
+                    </p>
+                    <p class="no-bottom-margin">Detail of each input : </p>
+                    <ul>
+                        <li><strong>Number of channels</strong> : How many channels are we expecting data for (default: 4).</li>
+                        <li><strong>Frequency</strong> : This is the sampling frequency of the card (default: 100Mhz).</li>
+                        <li><strong>Samples per frame</strong> : How many samples are being sent each time (default: 1024).</li>
+                        <li><strong>Voltage</strong> : This is the voltage range of the cards (default: 2.2v, from -1.1v to +1.1v).</li>
+                        <li><strong>Bit Depth</strong> : Number of bits needed for a single sample (default: 16bits or 2bytes).</li>
+                    </ul>
+                    <p>Once the settings are entered, simply click on the 'start capture' button to get redirected to the oscilloscope's main screen.</p>
+                </dl>
+
+                <h4 class="name" id=".Simulated-Real-Time">Simulated Real-Time</h4>
+                <dl class="details">
+                    <p>Let's start by saying that this mode, in its essence, is the exact same as the Real-time.</p>
+                    <p>On the app's side nothing changes between the two of them. The difference lies in the fact that instead of receiving data from STARE cards
+                        we have the ability to simulate one.</p>
+                    <p>This is useful if you want to get more familiar with the app and how it works or simply to test the settings you've entered and make sure you'll get coherent results with the real thing.</p>
+
+                    <p>Two bash files are available to start a small server sending data just like a card would :  </p>
+                    <ul>
+                        <li><strong>startFakeStare.sh</strong> - This will start sending data gathered from a large file continuously to the app.</li>
+                        <li><strong>FakeStareSin.sh</strong> - This will start sending 4 perfect sinusoidals on 4 different channels with the dafault settings of the app.</li>
+                    </ul>
+
+                    <p>If you want to test out specific settings or file, you can also directly use the python script <strong>'fakeStareData.py'</strong>.</p>
+                    <p>The file 'fakeStareData.py' can take multiple parameters to adapt to the settings chosen on the app : </p>
+                    <ul>
+                        <li><strong>-s</strong> | Specifies the size of each packet being sent.</li>
+                        <li><strong>-n</strong> | Number of samples per frame.</li>
+                        <li><strong>-c</strong> | Number of channels.</li>
+                        <li><strong>-d</strong> | Delay between two sendings.</li>
+                        <li><strong>-f</strong> | Specifies a file path to read data from (has to be a .dat file).</li>
+                        <li><strong>-i</strong> | Ip adress to send the data to.</li>
+                        <li><strong>-p</strong> | Port to use.</li>
+                        <li><strong>-r</strong> | How many packets to send.</li>
+                        <li><strong>-g</strong> | How many packets to include in a single send.</li>
+                    </ul>
+                    <p>A few examples to make this clear : </p>
+                    <p class="code-example no-bottom-margin">python3 fakeStareData.py -c 3 -d 100</p>
+                    <p class="sm-top-margin">Since we don't specify any file, this will send 3 perfect sinusoidals every 100 ms.</p>
+                    <p class="code-example no-bottom-margin">python3 fakeStareData.py -f ./data/Event_2_0008.dat -i "192.168.15.65"</p>
+                    <p class="sm-top-margin">In this example, the server will send data from the file 'Event_2_0008.dat' to the address '192.168.15.65'.</p>
+                </dl>
+
+                <h4 class="name" id=".Files">Files</h4>
+                <dl class="details">
+                    <div class="image-container">
+                        <figure class="mw-40">
+                            <img class="" src="./images/settings/file-page.png" alt="Settings page with 'file' as the selected mode.">
+                            <figcaption class="text-center">Default settings page for file reading.</figcaption>
+                        </figure> 
+                    </div>
+                    
+                    <p>Using the file mode does not require as much settings to enter compared to the real-time mode.
+                    This is because .osc file have headers and metadata that allows us to determine the settings as we receive the data.</p>
+
+                    <p>To start reading a file the procedure is really simple, simply select a .osc file from your computer, press the 'Start Capture' 
+                        button and you will be taken to the main screen as soon as the file is temporarly saved on the server.</p>
+                    <p>Once on the main screen, you can start the oscciloscope which will read the file given from start to finish.</p>
+                    <p>N.B: If the end of a file is reached, we will simply loop back to the beginning.</p>
+                </dl>
+            </article>
+        </section>  
+    </div>
+    <script>prettyPrint();</script>
+    <script src="scripts/polyfill.js"></script>
+</body>
+</html>

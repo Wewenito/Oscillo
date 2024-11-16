@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscillo Settings</title>
+    {% load static %}
+    <link rel="icon" type="image/png" href={% static "IMAGES/oscillo-icon.png" %}>
+    <link rel="stylesheet" type="text/css" href={% static 'FILES/css/styles_settings.css' %}>
+    <!-- BOOTSTRAP 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- THANKS TO THEM -->
+</head>
+<body class="bg-light bg-gradient">
+    <header>
+        <nav id="user-related-actions">
+            {% if request.user.is_authenticated %}
+                <a href={% url "oscillo:disconnect" %}><button class="btn btn-danger mt-4 ms-2 mb-4">Logout</button></a>
+                <a href={% url "oscillo:profile" %}><button class="btn btn-primary mt-4 ms-2 mb-4">Profile</button></a>
+            {% else %}
+                <a href={% url "oscillo:login" %}><button class="btn btn-success mt-4 ms-2 mb-4">Login</button></a>
+                <a href={% url "oscillo:register" %}><button class="btn btn-secondary mt-4 ms-2 mb-4">Register</button></a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="text-center">Settings selection for the oscilloscope</h2>
+        <br>
+        <p class="text-center">Enter here the values you expect to receive from the stare cards.</p>
+        <p class="text-center">Please make sur to enter the right informations or else the result of the signals displayed won't be accurate.</p>
+        <p class="text-center">N.B: You can change these values at any moment once on the oscilloscope screen by clicking the button 'SETTINGS'</p>
+        
+        <hr>
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}    
+            <div>
+                <label class="form-label">{{ form.mode.label}}</label>
+                {{ form.mode }}
+            </div>
+            <div class="settingsForm-elements">
+                <label class="form-label mt-2">{{ form.channels.label }}</label>
+                {{ form.channels }}
+            </div>
+            <div class="settingsForm-elements">
+                <label class="form-label mt-2">{{ form.freq.label }}</label>
+                {{ form.freq }}
+            </div>
+            <div class="settingsForm-elements">
+                <label class="form-label mt-2">{{ form.nb.label }}</label>
+                {{ form.nb }}
+            </div>
+            <div class="settingsForm-elements">
+                <label class="form-label mt-2">{{ form.voltage.label }}</label>
+                {{ form.voltage }}
+            </div>
+            <div class="settingsForm-elements">
+                <label class="form-label mt-2">{{ form.bits.label }}</label>
+                {{ form.bits }}
+            </div>
+            <div id="fileInput">
+                <label class="form-label mt-2">{{ form.file.label }}</label>
+                {{ form.file }}
+            </div>
+            <button type="submit" class="btn btn-warning mt-2">Start Capture</button>
+        </form>
+        <span id="warning-span" style="display: none;" class="alert alert-warning mt-3">
+            <p>You've currently selected the 'file' option.</p>
+            <p>Please select here above a file with an extension .osc to read it using the oscilloscope app.</p>
+        </span>
+    </main>
+
+    {% if error_message %}
+        <div class="alert alert-danger w-25 mt-2 text-center">
+            <p>{{ error_message }}</p>
+        </div>
+    {% endif %}
+
+    <footer>
+        <p>&copy; 2024 CNRS-IPHC. All rights reserved.</p>
+    </footer>
+
+    <script>
+    //====================== INPUT DISPLAY =======================
+        function updateFormVisibility() {
+            let selectedMode = document.getElementById('id_mode').value;
+            let settingsFormElements = document.querySelectorAll(".settingsForm-elements");
+            let fileInput = document.getElementById("fileInput");
+            let spanElement = document.querySelector('#warning-span');
+
+            if (selectedMode == "FILE"){
+                settingsFormElements.forEach(element => {
+                    element.style.display = "none";
+                    fileInput.style.display = "block";
+                });
+                spanElement.style.display = "block";
+            }else if (selectedMode == "REAL-TIME" || selectedMode == "FAKE-STARE"){
+                settingsFormElements.forEach(element => {
+                    element.style.display = "block";
+                });
+                fileInput.style.display = "none";
+                spanElement.style.display = "none";
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateFormVisibility();
+        });
+
+
+    //====================== INTERACTIVE DOC LISTENER =======================
+    document.addEventListener('keydown', function(event) {
+        const modeSelectionInput = document.getElementById("id_mode");
+
+        if (event.key === 'F1' || event.code === 'F1') {
+            event.preventDefault();  // Prevent the default action (which is usually opening the help menu)
+            let relativeStaticURI = "{% static 'DOCS/' %}";
+            let fileName;
+            if (modeSelectionInput.value == "REAL-TIME"){
+                fileName = "module-SETTINGS.html#.Real-Time";
+            }else if (modeSelectionInput.value == "FILE"){
+                fileName = "module-SETTINGS.html#.Files";
+            }else{
+                fileName = "module-SETTINGS.html";
+            }
+            let fullUrl = window.location.origin + relativeStaticURI + fileName;
+            let docWindow = window.open(fullUrl, '_blank');
+
+            if (!docWindow || docWindow.closed || typeof docWindow.closed === 'undefined') {
+                alert('You need to allow popups to open the documentation by pressing F1.');
+            }
+        }
+    });
+    </script>
+</body>
+</html>
